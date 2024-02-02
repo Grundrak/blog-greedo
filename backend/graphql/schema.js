@@ -2,7 +2,7 @@ const { gql } = require("graphql-tag");
 
 const typeDefs = gql`
   type User {
-    id: ID!
+    id: ID
     email: String!
     password: String!
     last_name: String!
