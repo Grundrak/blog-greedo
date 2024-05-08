@@ -1,32 +1,30 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const UserSchema = new Schema({
-  first_name: {
+const BlogSchema = new Schema({
+  title: {
     require: true,
     type: String,
     trim: true,
   },
-  last_name: {
+  author: {
     require: true,
     type: String,
     trim: true,
   },
-  email: {
+  image: {
     require: true,
     type: String,
-    trim: true,
-    unique: true,
   },
-  password: {
+  text: {
     require: true,
-    trim: true,
     type: String,
   },
-  creation_date: {
-    type: Date,
-    default: Date.now,
+  status: {
+    default: "Processing",
+    enum: [ "Processing", "Complited", "Cancelled"],
+    type: String,
   },
 });
 
-module.exports = mongoose.model("User", UserSchema);
+module.exports = mongoose.model("Blog", BlogSchema);
